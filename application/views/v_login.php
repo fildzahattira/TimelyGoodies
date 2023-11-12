@@ -13,11 +13,9 @@
 
     
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"> -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/css@3.css">
 
 
-<!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
 
 
