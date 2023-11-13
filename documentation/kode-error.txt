@@ -1,0 +1,25 @@
+LIST ERROR API
+
+GENERAL ERROR
+- ERROR_OK
+  Berarti tidak ada error.
+
+- SERVER_ERROR
+  Kesalahan pada server.
+
+
+USER ERROR
+- USER_ERROR_ALREADY_EXIST
+  Error terjadi ketika username sudah ada/diambil.
+
+- USER_ERROR_NO_USER
+  Error terjadi ketika username tidak ditemukan.
+
+- USER_ERROR_PASSWORD_WRONG
+  Error terjadi ketika password yang dimasukkan salah.
+
+- USER_ERROR_ALREADY_LOGGED_IN
+  Error terjadi ketika pengguna sudah logged in, namun tetap log-in.
+
+- USER_ERROR_NOT_LOGGED_IN
+  Error terjadi ketika pengguna masih belum log-in, namun tetap mencoba mengakses.

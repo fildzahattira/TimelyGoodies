@@ -1,0 +1,49 @@
+Semua fungsi api dapat diakses dengan menggunakan
+domain-website.com/Api/fungsi-api
+
+
+LIST FUNGSI API
+
+- Fungsi Untuk Login/Logoff website
+  - login
+    Metode: POST
+    Parameter:
+      - "username": username pengguna
+      - "password": password pengguna
+    Output Berhasil:
+      - "ok": penanda berhasil ("true")
+    Output Gagal:
+      - "ok": penanda berhasil ("false")
+      - "error": kode error (liat kode-error.txt)
+        Kemungkinan Error:
+          - USER_ERROR_ALREADY_LOGGED_IN
+          - USER_ERROR_USER_NOT_FOUND
+          - USER_ERROR_PASSWORD_WRONG
+          - SERVER_ERROR
+  
+  -logoff
+    Metode: GET/POST
+    Parameter: Tidak ada
+    Output:
+      - "ok": penanda berhasil (pasti "true")
+
+  - signup
+    Metode: POST
+    Parameter:
+      - "username": username pengguna
+      - "password": password pengguna
+    Output Berhasil:
+      - "ok": penanda berhasil ("true")
+    Output Gagal:
+      - "ok": penanda berhasil ("false")
+      - "error": kode error (liat kode-error.txt)
+        Kemungkinan Error:
+          - USER_ERROR_ALREADY_EXIST
+          - SERVER_ERROR
+
+  - user_exist
+    Metode: POST
+    Parameter:
+      - "username": username yang akan dicari
+    Output:
+      - "is_exist": apakah username sudah ada ("true" atau "false")
