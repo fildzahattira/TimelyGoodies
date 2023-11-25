@@ -1,6 +1,7 @@
 // general error
 const ERROR_OK = 0x0;
 const SERVER_ERROR = 0x1;
+const INTERVAL_ERROR = 0x2;
 
 // user error
 const USER_ERROR_ALREADY_EXIST = 0x101;
@@ -8,3 +9,12 @@ const USER_ERROR_USER_NOT_FOUND = 0x102;
 const USER_ERROR_PASSWORD_WRONG = 0x103;
 const USER_ERROR_ALREADY_LOGGED_IN = 0x104;
 const USER_ERROR_NOT_LOGGED_IN = 0x105;
+
+// page error
+const PAGE_ERROR_NOT_FOUND = 0x201;
+const PAGE_ERROR_NO_ITEM = 0x202;
+
+// barang error
+const BARANG_ERROR_NOT_FOUND = 0x301;
+const BARANG_ERROR_IMAGES_NOT_FOUND = 0x302;
+const BARANG_ERROR_PAGE_NOT_FOUND = 0x303;

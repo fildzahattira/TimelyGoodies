@@ -1,17 +1,19 @@
 <?php
 
-class IndexController extends CI_Controller{
+class IndexController extends Base_Controller{
   function __construct(){
     return parent::__construct();
   }
 
   function index(){
     $this->render_header("Welcome");
-    $this->render_navbar();
+    $this->render_landing();
+    // $this->render_navbar();
     $this->load->view("v_index");
     $this->render_footer();
   }
 
+    
   function login(){
     $this->render_header("Login");
     $this->load->view("v_login");
@@ -29,31 +31,13 @@ class IndexController extends CI_Controller{
     redirect(base_url(""));
   }
 
-  
-  function render_navbar(){
+
+  function render_landing(){
     $data = Array(
       "user_data" => $this->UserModel
     );
-
-    $this->load->view("v_index_navbar", $data);
-  }
-
-  function render_header($page_title = ""){
-    $data = array(
-      "user_data" => $this->UserModel,
-      "page_data" => array(
-        "title" => $page_title
-      )
-    );
-
-    $this->load->view("v_header", $data);
-  }
-
-  function render_footer(){
-    $data = array(
-      "user_data" => $this->UserModel
-    );
-
-    $this->load->view("v_footer", $data);
+    
+    $this->load->view("v_landing_page", $data);
+    // $this->load->view("v_landing_page");
   }
 }
