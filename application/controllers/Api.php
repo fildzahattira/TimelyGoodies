@@ -2,7 +2,7 @@
 
 class Api extends CI_Controller{
   function __construct(){
-    return parent::__construct();
+    parent::__construct();
   }
 
 
@@ -13,7 +13,7 @@ class Api extends CI_Controller{
       $password = $post_data["password"];
   
       $_error = $this->UserModel->login_user($username, $password);
-      if($_error != $this->UserModel::user_error_ok)
+      if($_error != $this->Base_UserModel::user_error_ok)
         throw new Exception($_error);
 
       $response = [
@@ -49,7 +49,7 @@ class Api extends CI_Controller{
       $password = $post_data["password"];
 
       $_error = $this->UserModel->add_user($username, $password);
-      if($_error != $this->UserModel::user_error_ok)
+      if($_error != $this->Base_UserModel::user_error_ok)
         throw new Exception($_error);
 
       $response = [

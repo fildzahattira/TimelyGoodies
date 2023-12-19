@@ -39,3 +39,12 @@ async function fetch_api(fungsi_api, data){
 
   return result;
 }
+
+
+async function fetch_api2(base_api, fungsi_api, data, data_get = {}){
+  let url = `${base_api}/start_api?function=${fungsi_api}`;
+  for(const [key, value] of Object.entries(data_get))
+    url += `&${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
+
+  return fetch_api(url, data);
+}

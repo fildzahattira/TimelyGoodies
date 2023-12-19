@@ -10,20 +10,11 @@ submit_button.addEventListener("click", async () => {
     "password": input_password.value
   };
 
-  let response = await fetch_api("signup", data);
+  let response = await fetch_api2("user", "signup", data);
   if(response["ok"] == "true"){
     window.location.href = base_url;
   }
   else{
-    switch(response["error"]){
-      case USER_ERROR_ALREADY_EXIST:{
-        error_msg.innerHTML = "Username sudah diambil.";
-      } break;
-
-      case SERVER_ERROR:{
-        error_msg.innerHTML = "Kesalahan pada server.";
-        console.log("Server error: ", response["error_message"]);
-      } break;
-    }
+    error_msg.innerHTML = parseErrorToMessage(response["error"]);
   }
 });

@@ -10,28 +10,11 @@ submit_button.addEventListener("click", async () => {
     "password": input_password.value
   };
 
-  let response = await fetch_api("login", data);
+  let response = await fetch_api2("user", "login", data);
   if(response["ok"] == "true"){
     window.location.href = base_url;
   }
   else{
-    switch(response["error"]){
-      case USER_ERROR_ALREADY_LOGGED_IN:{
-        error_msg.innerHTML = "User sudah login.";
-      } break;
-
-      case USER_ERROR_USER_NOT_FOUND:{
-        error_msg.innerHTML = "User tidak ditemukan.";
-      } break;
-
-      case USER_ERROR_PASSWORD_WRONG:{
-        error_msg.innerHTML = "Password salah.";
-      } break;
-
-      case SERVER_ERROR:{
-        error_msg.innerHTML = "Kesalahan pada server.";
-        console.log("Server error: ", response["error_message"]);
-      } break;
-    }
+    errorMessageElement.innerHTML = parseErrorToMessage(response["error"]);
   }
 });

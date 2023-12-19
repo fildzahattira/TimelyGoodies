@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -49,6 +49,32 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Login';
+$route['s/(:any)'] = 'SecretApi/$1'; 
+
+$route['index'] = "IndexController";
+$route['index/(:any)'] = "IndexController/$1";
+$route['barang'] = "BarangController";
+$route['barang/(:any)'] = "BarangController/$1";
+$route['item'] = "BarangController";
+$route['item/(:any)'] = "BarangController/$1";
+$route['jadwal'] = "JadwalController";
+$route['jadwal/(:any)'] = "JadwalController/$1";
+$route['pengantaran'] = "PengantaranController";
+$route['pengantaran/(:any)'] = "PengantaranController/$1";
+$route['saldo'] = "SaldoController";
+$route['saldo/(:any)'] = "SaldoController/$1";
+$route['user'] = "UserController";
+$route['user/(:any)'] = "UserController/$1";
+
+
+$route['Api/saldo/(:any)'] = "ApiSaldo/$1";
+$route['Api/user/(:any)'] = "ApiUser/$1";
+$route['Api/kurir/(:any)'] = "ApiKurir/$1";
+$route['Api/keranjang/(:any)'] = "ApiKeranjang/$1";
+$route['Api/pengantaran/(:any)'] = "ApiPengantaran/$1";
+
+
+$route['default_controller'] = 'IndexController';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

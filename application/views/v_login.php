@@ -1,6 +1,20 @@
+<!--<input name="username_input" type="text" placeholder="Username Anda"></input>-->
+<!--<br>-->
+<!--<input name="password_input" type="password" placeholder="Password Anda"></input>-->
+<!--<br>-->
+<!--<label name="error_message" style="color:red"></label>-->
+<!--<br>-->
+<!--<button name="submit_button">Login</button>-->
+
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
+    <meta name="base_url" content="<?php echo base_url("") ?>" />
+    <title>Login</title>
+    <script src="<?php echo base_url("static/js/error_const.js"); ?>"></script>
+    <script src="<?php echo base_url("static/js/fetch_api.js"); ?>"></script>
+
     <script src="<?php echo base_url() ?>assets/js/color-modes.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -104,7 +118,8 @@
     <link href="<?php echo base_url() ?>assets/css/sign-in.css" rel="stylesheet">
     <link href="sign-in.css" rel="stylesheet">
   </head>
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+  <!--<body class="d-flex align-items-center py-4 bg-body-tertiary">-->
+  <body class="d-flex align-items-center justify-content-center">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -158,26 +173,54 @@
 
     
 <main class="form-signin w-100 m-auto">
-  <form>
-    <img class="mb-4" src="../assets/logo/timelygoodies_logo.png" alt="" width="272" height="257">
-    <h1 class="h3 mb-3 fw-normal">Sign in to <b>TimelyGoodies</b></h1>
+  <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+  <form target="dummyframe">
+     <a href="<?php echo base_url('IndexController/render_landing');?>">
+        <img class="mb-4" src="../assets/logo/timelygoodies_logo.png" alt="" width="272" height="257">
+    </a>
+    <h1 class="h3 mb-3 fw-normal">
+      Sign in to <b>TimelyGoodies</b> 
+      <?php
+        if($for == "kurir")
+          echo "<i>Kurir</i>";
+      ?>
+    </h1>
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="name">
-      <label for="floatingInput">Username</label>
+      <input name="username_input" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+      <label for="floatingInput">Name</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <input name="password_input" type="password" class="form-control" id="floatingPassword" placeholder="Password">
       <label for="floatingPassword">Password</label>
     </div>
-    Don't have account?<a href="<?php echo base_url('Register/index');?>">Register here!</a>
+    <label style="color: #ff5050;" name="error_message">
+    </label>
+    <br>
+    <?php
+      if($for == "user"){
+        $signup_url = base_url('IndexController/signup');
+        echo <<<HTMLCODE
+          Don't have account?<a href="{$signup_url}">Register here!</a><br>
+        HTMLCODE;
+      }
+    ?>
     <br/>
-    <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+    <button name="submit_button" class="btn btn-primary w-100 py-2" type="submit">Login</button>
     <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
   </form>
 </main>
 <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
 <script src="<?php echo base_url() ?>assets/js/bootstrap.bundle.min.js"></script>
+
+<?php
+  $script_url = "";
+  if($for == "user")
+    $script_url = base_url("static/js/login.js");
+  else if($for == "kurir")
+    $script_url = base_url("static/js/login_kurir.js");
+?>
+<script src="<?php echo $script_url?>"></script>
 
 
     </body>

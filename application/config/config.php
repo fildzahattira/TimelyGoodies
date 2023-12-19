@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') or exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/timelygoodies/';
+$config['base_url'] = 'https://pemframe.000webhostapp.com/';
+
+/*
+|--------------------------------------------------------------------------
+| REST Login
+|--------------------------------------------------------------------------
+|
+| Is login required and if so, which type of login?
+|
+| '' = no login required, 'basic' = relatively secure login, 'digest' = secure login
+|
+*/
+$config['rest_auth'] = 'none';
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +64,7 @@ $config['index_page'] = '';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']    = 'REQUEST_URI';
+$config['uri_protocol']	= 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +90,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']    = 'english';
+$config['language']	= 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -116,7 +128,7 @@ $config['enable_hooks'] = FALSE;
 | https://codeigniter.com/userguide3/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'Base_';
 
 /*
 |--------------------------------------------------------------------------
@@ -408,12 +420,12 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
-$config['cookie_prefix']    = '';
-$config['cookie_domain']    = '';
-$config['cookie_path']        = '/';
-$config['cookie_secure']    = FALSE;
-$config['cookie_httponly']     = FALSE;
-$config['cookie_samesite']     = 'Lax';
+$config['cookie_prefix']	= '';
+$config['cookie_domain']	= '';
+$config['cookie_path']		= '/';
+$config['cookie_secure']	= FALSE;
+$config['cookie_httponly'] 	= FALSE;
+$config['cookie_samesite'] 	= 'Lax';
 
 /*
 |--------------------------------------------------------------------------
