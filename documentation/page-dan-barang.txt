@@ -1,0 +1,7 @@
+Page dan Barang adalah item yang berbeda pada database.
+
+Page
+  Adalah item yang mengumpulkan barang-barang menjadi satu. Tujuan dari pengumpulan ini adalah agar dalam satu page, admin bisa menggunakan tipe-tipe atau jumlah takaran yang berbeda-beda ditunjukkan dalam satu halaman.
+
+Barang
+  Adalah item yang menunjukkan suatu barang dengan tipe tertentu atau berat tertentu. Karena pengguna tidak mempunyai kontrol atas tipe barang atau beratnya dalam suatu item Barang, maka item Page akan membantu mengumpulkan setiap barang yang sama dengan bentuk dan/atau sifat tertentu.

@@ -6,6 +6,7 @@ class IndexController extends Base_Controller{
   }
 
   function index(){
+<<<<<<< HEAD
     if($this->UserModel->is_log_in()){
       redirect(base_url("jadwal"));
     }
@@ -18,6 +19,13 @@ class IndexController extends Base_Controller{
       $this->load->view("v_index");
       $this->render_footer();
     }
+=======
+    $this->render_header("Welcome");
+    $this->render_landing();
+    // $this->render_navbar();
+    $this->load->view("v_index");
+    $this->render_footer();
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
   }
 
     
@@ -63,11 +71,14 @@ class IndexController extends Base_Controller{
     redirect(base_url(""));
   }
 
+<<<<<<< HEAD
   function kurir_signout(){
     $this->KurirModel->delete_cookie_login();
     redirect(base_url(""));
   }
 
+=======
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
 
   function render_landing(){
     $data = Array(

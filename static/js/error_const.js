@@ -1,8 +1,12 @@
 // general error
 const ERROR_OK = 0x0;
 const SERVER_ERROR = 0x1;
+<<<<<<< HEAD
 const INTERNAL_ERROR = 0x2;
 const PARAMETER_ERROR = 0x3;
+=======
+const INTERVAL_ERROR = 0x2;
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
 
 // user error
 const USER_ERROR_ALREADY_EXIST = 0x101;
@@ -18,6 +22,7 @@ const PAGE_ERROR_NO_ITEM = 0x202;
 // barang error
 const BARANG_ERROR_NOT_FOUND = 0x301;
 const BARANG_ERROR_IMAGES_NOT_FOUND = 0x302;
+<<<<<<< HEAD
 const BARANG_ERROR_PAGE_NOT_FOUND = 0x303;
 
 // jadwal error
@@ -92,3 +97,6 @@ function alertUserError(error_code){
   let str = parseErrorToMessage(error_code);
   alert(str);
 }
+=======
+const BARANG_ERROR_PAGE_NOT_FOUND = 0x303;
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b

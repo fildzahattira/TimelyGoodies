@@ -2,6 +2,7 @@
 
 
 class BarangController extends Base_Controller{
+<<<<<<< HEAD
   function __construct(){
     parent::__construct();
 
@@ -42,10 +43,16 @@ class BarangController extends Base_Controller{
     $this->render_navbar();
     $this->load->view("v_list_kategori", $data_view);
     $this->render_footer();
+=======
+
+  function __contruct(){
+    return parent::__contruct();
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
   }
 
 
   function barang(){
+<<<<<<< HEAD
     $id_page = $this->input->get("id");
     if($id_page == NULL){
       $this->list_barang();
@@ -161,3 +168,35 @@ class BarangController extends Base_Controller{
     $this->list_kategori();
   }
 } 
+=======
+    $this->load->model("PageModel");
+
+    $id_page = $this->input->get("id");
+    if($id_page == NULL)
+      $this->error();
+
+    $page_data = $this->PageModel->get_page_data($id_page);
+    switch($page_data){
+      case PageModel::page_error_not_found:
+        $this->error();
+        break;
+
+      case PageModel::page_error_no_item:
+        $this->error();
+        break;
+    }
+
+    $data_array = array(
+      "id_page" => $id_page,
+      "data_page" => $page_data["page_data"],
+      "list_barang" => $page_data["barang_data"]
+    );
+
+    $this->render_header("Barang");
+
+    $this->load->view("v_barang_page", $data_array);
+
+    $this->render_footer();
+  }
+}
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b

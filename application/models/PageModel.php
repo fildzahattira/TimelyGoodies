@@ -9,6 +9,7 @@ class PageModel extends CI_Model{
 
 
   function __construct(){
+<<<<<<< HEAD
     parent::__construct();
     
     $this->load->model("BarangModel");
@@ -46,12 +47,19 @@ class PageModel extends CI_Model{
     return $result;
   }
 
+=======
+    $this->load->model("BarangModel");
+
+    return parent::__construct();
+  }
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
   
   function get_page_data($id_page){
     $this->db->where("id_page", $id_page);
     $page_data = $this->db->get("page_barang");
     
     if($page_data->num_rows() <= 0)
+<<<<<<< HEAD
       return Array("error" => PageModel::page_error_not_found);
   
     $list_barang = $this->BarangModel->get_barang_in_page($id_page);
@@ -82,10 +90,22 @@ class PageModel extends CI_Model{
         "page_data" => $new_page_data,
         "barang_data" => $page_data["data"]["barang_data"]
       )
+=======
+      return PageModel::page_error_not_found;
+  
+    $list_barang = $this->BarangModel->get_barang_in_page($id_page);
+    if($list_barang == BarangModel::barang_error_not_found)
+      return PageModel::page_error_no_item;
+  
+    return array(
+      "page_data" => $page_data->row_array(),
+      "barang_data" => $list_barang
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
     );
   }
 
 
+<<<<<<< HEAD
   function search_barang($search_term){
     $search_term = strtolower($search_term);
     $search_result = $this->db->query("SELECT id_page FROM page_barang WHERE tags LIKE '%{$search_term}%'");
@@ -137,6 +157,17 @@ class PageModel extends CI_Model{
 
 
   // not used
+=======
+  function add_page($data_page, $list_id_barang){
+
+  }
+
+  function remove_page($id_page){
+
+  }
+
+
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
   function add_barang_to_page($id_page, $id_barang){
     $this->BarangModel->set_barang_to_page($id_barang, $id_page);
   }

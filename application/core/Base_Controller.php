@@ -1,6 +1,7 @@
 <?php
 
 class Base_Controller extends CI_Controller{
+<<<<<<< HEAD
   const generic_error_ok = 0x0;
   const generic_error_server_error = 0x1;
   const generic_error_internal_error = 0x2;
@@ -27,6 +28,22 @@ class Base_Controller extends CI_Controller{
   }
 
   public function render_header($page_title = ""){
+=======
+  function __construct(){
+    return parent::__construct();
+  }
+  
+
+  function render_navbar(){
+    $data = Array(
+      "user_data" => $this->UserModel
+    );
+
+    $this->load->view("v_index_navbar", $data);
+  }
+
+  function render_header($page_title = ""){
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
     $data = array(
       "user_data" => $this->UserModel,
       "page_data" => array(
@@ -37,13 +54,18 @@ class Base_Controller extends CI_Controller{
     $this->load->view("v_header", $data);
   }
 
+<<<<<<< HEAD
   public function render_footer(){
+=======
+  function render_footer(){
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
     $data = array(
       "user_data" => $this->UserModel
     );
 
     $this->load->view("v_footer", $data);
   }
+<<<<<<< HEAD
 
   public function on_error(){
 
@@ -251,4 +273,6 @@ class Base_ApiUserController extends Base_ApiController{
 
     $this->send_response(200, $response);
   }
+=======
+>>>>>>> 287d50661872511a97899037362e2b035ce9316b
 }
